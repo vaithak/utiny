@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "base62": "^2.0.0",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "mysql": "^2.16.0",
+    "mysql": "^2.14.0",
     "nodemon": "^1.18.3"
   },
   "devDependencies": {
