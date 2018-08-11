@@ -1,0 +1,34 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A url shortener",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "base62": "^2.0.0",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaithak/URL-Shortener.git"
+  },
+  "author": "Vaibhav Thakkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaithak/URL-Shortener/issues"
+  },
+  "homepage": "https://github.com/vaithak/URL-Shortener#readme"
+}
