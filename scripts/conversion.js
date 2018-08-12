@@ -21,7 +21,7 @@ function encode_URL(url,res)
       {
         res.status(200);
         var shortened_url = id;
-        var output = "Your shortened url is " + shortened_url;
+        var output = "https://ik.com/" + shortened_url;
         res.render('index', {
             output: output
         });
@@ -34,13 +34,16 @@ function encode_URL(url,res)
 function decode_URL(encoded_url,res)
 {
   var id = base62.decode(encode_URL,charset);
-  var url = db.findURL(id);
-
-  if(url.length != 0)
-  {
-    res.status(301);
-    res.redirect(url);
-  }
+  db.findURL(id,function(err,data){
+    if(data.length != 0)
+    {
+      res.status(301);
+      res.redirect(url);
+    }
+    else {
+      res.status(404);
+    }
+  });
 }
 
 module.exports = {

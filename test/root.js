@@ -22,11 +22,11 @@ describe('Testing routes', function(){
             });
       });
 
-      it('get on /encode should return 404 status', function(){
+      it('get on /encode should return 200 status', function(){
         chai.request(app.server)
             .get('/encode')
             .end(function(err, res) {
-                res.should.have.status(404);
+                res.should.have.status(200);
             });
       });
 });

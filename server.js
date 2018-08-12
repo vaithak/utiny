@@ -21,6 +21,11 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname + "/public" + '/index.html'));
 });
 
+app.get('/encode', function(req, res){
+  res.status(200);
+  res.sendFile(path.join(__dirname + "/public" + '/index.html'));
+});
+
 app.post('/encode',function(req,res){
   if(checks.check(req.body.url,res) != -1)
     {
@@ -34,8 +39,9 @@ app.get('*', function(req, res){
   res.sendFile(path.join(__dirname + "/public" + '/404.html'));
 });
 
-app.listen(3000, function(){
-   console.log('Example app listening on port 3000!');
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
+   console.log('Example app listening on port ' + port);
 });
 
 module.exports.server = app;
