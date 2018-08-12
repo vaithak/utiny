@@ -16,21 +16,16 @@ p{
   text-align: center;
 }
 
-form{
-  position: absolute;
-  top: 24%;
-  width: 50%;
-  left:25%;
+.vertical-center {
+  height:60%;
+  width:100%;
+  align-items: center;
+  background: none;
+  text-align: center;  /* align the inline(-block) elements horizontally */
+  vertical-align: middle;
 }
 
 input{
-  height: 50px !important;
-  border-radius: 30px;
-}
-
-button{
-  position: relative;
-  width: 30%;
-  left: 35%;
-  height: 50px;
+  border-radius: 30px !important;
+  width: 100% !important;
 }

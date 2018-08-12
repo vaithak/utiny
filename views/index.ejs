@@ -10,21 +10,33 @@
     <title>utiny | URL-Shortener</title>
   </head>
   <body>
+
     <div class="container">
-      <h1><u>utiny | Shorten your URL</u></h2>
-      <!-- <p>Currently this service is only accessible inside IIT Kanpur Network as the server is running on internal network of IIT Kanpur</p> -->
-      <form action="/encode" method="post">
-        <div class="form-group">
-          <input class="form-control" id="url" placeholder="Enter URL to shorten" name="url">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-s-12">
+          <h1><u>utiny | Shorten your URL</u></h2>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <% if (output!="") { %>
-        <h3>Your shortened url is <a href=<%= output %>><%= output %></a></h3>
-      <% } %>
-      <% if (status != "") { %>
-        <h3 style="color:red"><%= status %></h3>
-      <% } %>
+      </div>
+    <div class="jumbotron vertical-center">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-s-12">
+          <form action="/encode" method="post">
+            <div class="form-group">
+              <input class="form-control" id="url" placeholder="Enter URL to shorten" name="url">
+            </div>
+            <button type="submit" class="btn btn-primary center">Submit</button>
+          </form>
+          <% if (output!="") { %>
+            <h3>Your shortened url is <a href=<%= output %>><%= output %></a></h3>
+          <% } %>
+          <% if (status != "") { %>
+            <h3 style="color:red"><%= status %></h3>
+          <% } %>
+        </div>
+      </div>
+
     </div>
+  </div>
+
   </body>
 </html>
