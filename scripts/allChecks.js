@@ -12,14 +12,14 @@ function checkValid(url,res,callback)
           if(err) throw err;
 
           if(data == 0)
-            callback(null,1);
+            callback(null,1,url);
           else {
             res.status(200);
             res.render('index',{
               output: "https://utiny.herokuapp.com/" + data,
               status: ""
             });
-            callback(null,0);
+            callback(null,0,url);
           }
         });
     }
@@ -35,19 +35,19 @@ function checkValid(url,res,callback)
         if(err) throw err;
 
         if(data == 0)
-          callback(null,1);
+          callback(null,1,url);
         else {
           res.status(200);
           res.render('index',{
             output: "https://utiny.herokuapp.com/" + data,
             status: ""
           });
-          callback(null,0);
+          callback(null,0,url);
         }
       });
     }
     else {
-        callback(null,-1);
+        callback(null,-1,url);
     }
   }
 }

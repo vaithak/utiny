@@ -28,11 +28,11 @@ app.get('/encode', function(req, res){
 
 app.post('/encode',function(req,res){
   console.log(req.body);
-  checks.check(req.body.url,res, function(err,checkingStatus){
+  checks.check(req.body.url,res, function(err,checkingStatus,url){
     console.log(checkingStatus);
     if(checkingStatus == 1)
       {
-        conversion.encode(req.body.url,res);
+        conversion.encode(url,res);
       }
     else if(checkingStatus == -1) {
       res.render('index',{
