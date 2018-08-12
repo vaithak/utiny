@@ -14,9 +14,9 @@ describe('Testing routes', function(){
             });
       });
 
-      it('get on anything else should return 404 status', function(){
+      it('get on anything else non_valid url should return 404 status', function(){
         chai.request(app.server)
-            .get('/hello')
+            .get('/hello_ui')
             .end(function(err, res) {
                 res.should.have.status(404);
             });

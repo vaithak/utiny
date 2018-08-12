@@ -43,6 +43,7 @@ function decode_URL(encoded_url,res)
     }
     else {
       res.status(404);
+      res.sendFile(__dirname + "/public/404.html");
     }
   });
 }
