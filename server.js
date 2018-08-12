@@ -45,7 +45,9 @@ app.post('/encode',function(req,res){
 
 //The 404 Route
 app.get('*', function(req, res){
-  conversion.decode(req.path,res);
+  conversion.decode(req.path.substr(1),res,function(err,data){
+    if(err) throw err;
+  });
 });
 
 var port = process.env.PORT || 3000;

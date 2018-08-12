@@ -4,7 +4,7 @@ var db = require("./db");
 function checkValid(url,res,callback)
 {
   console.log(url);
-  if(url.substr(0,3)=="ftp:" || url.substr(0,4)=="http:" || url.substr(0,5)=="https:" || url.substr(0,6)=="mailto:")
+  if(url.substr(0,4)=="ftp:" || url.substr(0,5)=="http:" || url.substr(0,6)=="https:" || url.substr(0,7)=="mailto:")
   {
     if (validUrl.isUri(url))
     {

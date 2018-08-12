@@ -1,6 +1,7 @@
 var base62 = require("base62/lib/custom");
 charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 charset = base62.indexCharset(charset);
+var path = require('path');
 
 var db = require("./db");
 
@@ -32,18 +33,21 @@ function encode_URL(url,res)
 
 }
 
-function decode_URL(encoded_url,res)
+function decode_URL(encoded_URL,res,callback)
 {
-  var id = base62.decode(encode_URL,charset);
+  console.log(encoded_URL);
+  var id = base62.decode(encoded_URL,charset);
   db.findURL(id,function(err,data){
-    if(data.length != 0)
+    if(data!="null")
     {
       res.status(301);
-      res.redirect(url);
+      res.redirect(data);
+      callback(null,1);
     }
     else {
       res.status(404);
-      res.sendFile(__dirname + "/public/404.html");
+      res.sendFile(path.join(__dirname + "/../public" + '/404.html'));
+      callback(null,0);
     }
   });
 }

@@ -22,7 +22,7 @@ function getId(callback)
         connection.query("select max(ID) from urls",function(err,rows){
             connection.release();
             if(!err) {
-                var index = rows[0]['max(ID)'] + 1;
+                var index = rows[0]['max(ID)'] + 10;
                 callback(null,index);
             }
             else {
@@ -61,11 +61,19 @@ function findURL(id,callback)
     if (err) {
       throw err;
     }
-
-        connection.query("SELECT actual FROM urls WHERE ID='" + id + "';",function(err,rows){
+        var sql = "SELECT actual FROM urls WHERE ID=" + id + ";"
+        console.log(sql);
+        connection.query(sql,function(err,rows){
             connection.release();
+            console.log(rows);
             if(!err) {
-                callback(null,rows[0]['actual']);
+              if(rows.length == 0)
+              {
+                callback(null,"null");
+              }
+              else {
+                  callback(null,rows[0]['actual']);
+              }
             }
         });
   });
