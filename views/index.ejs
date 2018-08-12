@@ -27,10 +27,10 @@
             <button type="submit" class="btn btn-primary center">Submit</button>
           </form>
           <% if (output!="") { %>
-            <h3>Your shortened url is <a href=<%= output %>><%= output %></a></h3>
+            <h5>Your shortened url is <a href=<%= output %>><%= output %></a></h5>
           <% } %>
           <% if (status != "") { %>
-            <h3 style="color:red"><%= status %></h3>
+            <h2 style="color:red"><%= status %></h2>
           <% } %>
         </div>
       </div>
