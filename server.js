@@ -22,15 +22,25 @@ app.get('/', function(req, res){
 });
 
 app.get('/encode', function(req, res){
-  res.status(200);
-  res.sendFile(path.join(__dirname + "/public" + '/index.html'));
+  res.status(20);
+  res.redirect('/');
 });
 
 app.post('/encode',function(req,res){
-  if(checks.check(req.body.url,res) != -1)
-    {
-      conversion.encode(req.body.url,res);
+  console.log(req.body);
+  checks.check(req.body.url,res, function(err,checkingStatus){
+    console.log(checkingStatus);
+    if(checkingStatus == 1)
+      {
+        conversion.encode(req.body.url,res);
+      }
+    else if(checkingStatus == -1) {
+      res.render('index',{
+        output: "",
+        status: "Invalid URL"
+      });
     }
+  });
 });
 
 //The 404 Route

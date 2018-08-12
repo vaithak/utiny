@@ -21,9 +21,10 @@ function encode_URL(url,res)
       {
         res.status(200);
         var shortened_url = id;
-        var output = "https://ik.com/" + shortened_url;
+        var output = "https://utiny.herokuapp.com/" + shortened_url;
         res.render('index', {
-            output: output
+            output: output,
+            status: ""
         });
       }
     });

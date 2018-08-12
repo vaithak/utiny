@@ -62,7 +62,7 @@ function findURL(id,callback)
       throw err;
     }
 
-        connection.query("SELECT actual FROM urls WHERE ID=" + id + ");",function(err,rows){
+        connection.query("SELECT actual FROM urls WHERE ID='" + id + "';",function(err,rows){
             connection.release();
             if(!err) {
                 callback(null,rows[0]['actual']);
@@ -71,8 +71,36 @@ function findURL(id,callback)
   });
 }
 
+function checkInDB(url,callback)
+{
+  pool.getConnection(function(err,connection)
+  {
+    if (err) {
+      throw err;
+    }
+
+        connection.query("SELECT * FROM urls WHERE actual='" + url + "';",function(err,rows){
+            connection.release();
+            console.log(rows);
+            if(!err) {
+              if(rows.length == 0)
+              {
+                callback(null,0);
+              }
+              else {
+                  callback(null,rows[0]['unique_key']);
+              }
+            }
+            else {
+              callback(null,0);
+            }
+        });
+  });
+}
+
 module.exports = {
   getId: getId,
   insertInto: insertInto,
-  findURL: findURL
+  findURL: findURL,
+  checkInDB: checkInDB
 };
