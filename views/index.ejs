@@ -32,6 +32,10 @@
           <% if (status != "") { %>
             <h2 style="color:red"><%= status %></h2>
           <% } %>
+          <% if (reverse != "") { %>
+            <h5>This is a shortened URL for</h5>
+            <h6><br><a href=<%= reverse %>><%= reverse %></a></h6>
+          <% } %>
         </div>
       </div>
 

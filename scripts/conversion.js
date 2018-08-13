@@ -24,6 +24,7 @@ function encode_URL(url,res)
         var shortened_url = id;
         var output = "https://utiny.herokuapp.com/" + shortened_url;
         res.render('index', {
+            reverse: "",
             output: output,
             status: ""
         });

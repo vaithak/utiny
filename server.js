@@ -36,6 +36,7 @@ app.post('/encode',function(req,res){
       }
     else if(checkingStatus == -1) {
       res.render('index',{
+        reverse: "",
         output: "",
         status: "Invalid URL"
       });
