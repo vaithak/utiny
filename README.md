@@ -1,6 +1,6 @@
 # URL-Shortener
 A url shortener written using NodeJs and mySql.  
-
+# !!!Currentlly Inactive!!!  
 Available at - [https://utiny.herokuapp.com](https://utiny.herokuapp.com)  
 
 #### Backend Working
